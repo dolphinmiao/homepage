@@ -71,3 +71,29 @@ body {
     margin: auto;
     background: rgba(255,255,255,.3);
 }
+
+/*
+ * mdui 自带的 3 个 Roboto 字重没有 font-display，字体没下完之前整页文字都不画（移动网络下能白 1 秒多）。
+ * 这里用同样 3 个文件重声明一遍、加 swap：先用系统字体画出来，字体到了再换。
+ */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Roboto'), local('Roboto-Regular'), url('../../mdui/fonts/roboto/Roboto-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Roboto Medium'), local('Roboto-Medium'), url('../../mdui/fonts/roboto/Roboto-Medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Roboto Bold'), local('Roboto-Bold'), url('../../mdui/fonts/roboto/Roboto-Bold.woff2') format('woff2');
+}
