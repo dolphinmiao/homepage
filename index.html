@@ -46,12 +46,8 @@
                 var size = (window.innerWidth > 760 && window.devicePixelRatio > 1) ? 1920 : 1280;
                 // 算成绝对地址再塞进 CSS 变量：CSS 里的相对地址是按 main.css 的位置解析的，这里不能给相对路径
                 var url = new URL('assets/bg/bg-' + (index + 1) + '-' + size + '.webp', document.baseURI).href;
+                // 只设定用哪张图，不做 preload：背景图是纯装饰，抢带宽会把阻塞文字渲染的字体挤到后面
                 document.documentElement.style.setProperty('--rin-bg-url', 'url("' + url + '")');
-                var preload = document.createElement('link');
-                preload.rel = 'preload';
-                preload.as = 'image';
-                preload.href = url;
-                document.head.appendChild(preload);
             } catch (e) { /* 兜底走 CSS 里的默认背景 */ }
         })();
     </script>
