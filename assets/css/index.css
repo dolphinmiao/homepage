@@ -17,6 +17,11 @@
     max-width: 220px;
     padding-bottom: 10px;
     width: 95%;
+    /* 有 width/height 属性后按属性算出固定高度会多 4px，显式 auto 让高度继续按比例走 */
+    height: auto;
+    /* 去掉 inline 图片基线留下的间隙（原来怪异模式没有这段），并保持居中 */
+    display: block;
+    margin: 0 auto;
 }
 
 .rin-left {
@@ -29,6 +34,9 @@
     font-size: 25px;
     color: white;
     padding-bottom: 2px;
+    /* 原来是 div，改成 h1 后补回默认样式，排版保持不变 */
+    margin: 0;
+    font-weight: inherit;
 }
 
 .rin-left-title2 {
@@ -72,6 +80,14 @@
     font-size: 20px;
     color: white;
     margin-bottom: 5px;
+}
+
+/* 小标题由 div 改成 h2 后，抵消 .mdui-typo h2 自带的字号/外边距，排版保持不变 */
+h2.rin-card-title2 {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 400;
 }
 
 .rin-card-content {
